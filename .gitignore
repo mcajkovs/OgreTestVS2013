@@ -1,2 +1,4 @@
 *.dll
 /OgreTest.sdf
+/OgreTest/Release/*
+OgreTest/Release/*

@@ -115,7 +115,7 @@ OgreOverlay.lib;$(OCVLIBs)</AdditionalDependencies>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(OGRE_DIR)\ogre-dependencies-winrt\include;$(OGRE_DIR)\Ogre\OgreMain\include;$(OGRE_DIR)\Ogre\build\include;$(OGRE_DIR)\ogre-dependencies-winrt\src\ois\includes;$(OGRE_DIR)\Ogre;$(OGRE_DIR)\Ogre\OgreMain\include\Threading;$(OGRE_DIR)\Ogre\Samples\Common\include;$(OGRE_DIR)\Ogre\Components\RTShaderSystem\include;$(OGRE_DIR)\Ogre\Components\Overlay\include;$(OGRE_DIR)\ogre-dependencies-winrt\include\OIS;$(INDE_OPENCV_DIR)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Intel\INDE\OgreSDK_1-9-0\ogre-dependencies-winrt\include;C:\Intel\INDE\OgreSDK_1-9-0\Ogre\OgreMain\include;C:\Intel\INDE\OgreSDK_1-9-0\Ogre\build\include;C:\Intel\INDE\OgreSDK_1-9-0\ogre-dependencies-winrt\src\ois\includes;C:\Intel\INDE\OgreSDK_1-9-0\Ogre;C:\Intel\INDE\OgreSDK_1-9-0\Ogre\OgreMain\include\Threading;C:\Intel\INDE\OgreSDK_1-9-0\Ogre\Samples\Common\include;C:\Intel\INDE\OgreSDK_1-9-0\Ogre\Components\RTShaderSystem\include;C:\Intel\INDE\OgreSDK_1-9-0\Ogre\Components\Overlay\include;$(INDE_OPENCV_DIR)\include;C:\Intel\INDE\OgreSDK_1-9-0\ogre-dependencies-winrt\include\OIS;C:\Intel\INDE\boost_1_59_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

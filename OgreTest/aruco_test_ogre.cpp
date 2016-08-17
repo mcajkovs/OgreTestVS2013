@@ -90,16 +90,17 @@ int main(int argc, char** argv)
       /// CAPTURE FIRST FRAME
       TheVideoCapturer.grab();
       TheVideoCapturer.retrieve ( TheInputImage );
-      cv::undistort(TheInputImage,TheInputImageUnd,CameraParams.CameraMatrix,CameraParams.Distorsion);      
+      cv::undistort( TheInputImage, TheInputImageUnd, CameraParams.CameraMatrix, CameraParams.Distorsion);      
       
       /// INIT OGRE
-      initOgreAR(CameraParamsUnd, TheInputImageUnd.ptr<uchar>(0));
+      //initOgreAR(CameraParamsUnd, TheInputImageUnd.ptr<uchar>(0));
+	  initOgreAR(CameraParamsUnd, TheInputImageUnd.ptr<uchar>(0));
 
       while (TheVideoCapturer.grab())
       {
-
 	      /// READ AND UNDISTORT IMAGE
 	      TheVideoCapturer.retrieve ( TheInputImage );
+
 	      cv::undistort(TheInputImage,TheInputImageUnd,CameraParams.CameraMatrix,CameraParams.Distorsion);
 	      
 	      /// DETECT MARKERS
@@ -111,14 +112,16 @@ int main(int argc, char** argv)
 	      /// UPDATE SCENE
 	      int i;
 	      double position[3], orientation[4];
+		  //exit(11);
 	      // show nodes for detected markers
-	      for(i=0; i<TheMarkers.size() && i<MAX_MARKERS; i++) {
-		TheMarkers[i].OgreGetPoseParameters(position, orientation);
-	        ogreNode[i]->setPosition( position[0], position[1], position[2]  );
-	        ogreNode[i]->setOrientation( orientation[0], orientation[1], orientation[2], orientation[3]  );
-		ogreNode[i]->setVisible(true);
-	      }
-	      // hide rest of nodes
+		  for (i = 0; i < TheMarkers.size() && i < MAX_MARKERS; i++) {
+			  TheMarkers[i].OgreGetPoseParameters(position, orientation);
+			  ogreNode[i]->setPosition(position[0], position[1], position[2]);
+			  ogreNode[i]->setOrientation(orientation[0], orientation[1], orientation[2], orientation[3]);
+			  ogreNode[i]->setVisible(true);
+		  }
+
+		  // hide rest of nodes
 	      for( ; i<MAX_MARKERS; i++) ogreNode[i]->setVisible(false);
 
 	      // Update animation
@@ -164,7 +167,19 @@ bool readParameters(int argc, char** argv)
       //if (argv[1]=="live") TheVideoCapturer.open(0);
       //else TheVideoCapturer.open(argv[1]);
 
+	  // read intrinsic file
+	  try {
+		  CameraParams.readFromXMLFile(argv[2]);
+	  }
+	  catch (std::exception &ex) {
+		  cout << ex.what() << endl;
+		  return false;
+	  }
+
 	  TheVideoCapturer.open(0);
+	  TheVideoCapturer.set(CV_CAP_PROP_FRAME_WIDTH, CameraParams.CamSize.width);
+	  TheVideoCapturer.set(CV_CAP_PROP_FRAME_HEIGHT, CameraParams.CamSize.height);
+
 
       if (!TheVideoCapturer.isOpened())
       {
@@ -172,13 +187,6 @@ bool readParameters(int argc, char** argv)
 	  return false;
       }
     
-      // read intrinsic file
-      try {
-	  CameraParams.readFromXMLFile(argv[2]);
-      } catch (std::exception &ex) {
-	  cout<<ex.what()<<endl;
-	  return false;
-      }        
 
       if(argc>3) TheMarkerSize=atof(argv[3]); 
       else TheMarkerSize=1.;

@@ -9,5 +9,6 @@
     <LocalDebuggerCommand>$(TargetPath)</LocalDebuggerCommand>
     <LocalDebuggerWorkingDirectory>$(ProjectDir)</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>live charucoXPScameraMatrix_720p.yml 0.035</LocalDebuggerCommandArguments>
   </PropertyGroup>
 </Project>
