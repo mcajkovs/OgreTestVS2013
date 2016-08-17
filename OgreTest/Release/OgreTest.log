@@ -1,4 +1,4 @@
-﻿Build started 8/17/2016 1:11:48 PM.
+﻿Build started 8/17/2016 1:24:17 PM.
      1>Project "C:\Users\ShadowQ\Documents\Visual Studio 2013\Projects\OgreTestVS2013\OgreTest\OgreTest.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Intel\INDE\OgreSDK_1-9-0\ogre-dependencies-winrt\include" /I"C:\Intel\INDE\OgreSDK_1-9-0\Ogre\OgreMain\include" /I"C:\Intel\INDE\OgreSDK_1-9-0\Ogre\build\include" /I"C:\Intel\INDE\OgreSDK_1-9-0\ogre-dependencies-winrt\src\ois\includes" /I"C:\Intel\INDE\OgreSDK_1-9-0\Ogre" /I"C:\Intel\INDE\OgreSDK_1-9-0\Ogre\OgreMain\include\Threading" /I"C:\Intel\INDE\OgreSDK_1-9-0\Ogre\Samples\Common\include" /I"C:\Intel\INDE\OgreSDK_1-9-0\Ogre\Components\RTShaderSystem\include" /I"C:\Intel\INDE\OgreSDK_1-9-0\Ogre\Components\Overlay\include" /IC:\Intel\INDE\OpenCV_3.1_build_2\install\include /I"C:\Intel\INDE\OgreSDK_1-9-0\ogre-dependencies-winrt\include\OIS" /IC:\Intel\INDE\boost_1_59_0 /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D NDEBUG /D _CONSOLE /D _LIB /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt aruco_test_ogre.cpp
@@ -35,4 +35,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:16.59
+Time Elapsed 00:00:14.84

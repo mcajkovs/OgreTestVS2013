@@ -315,6 +315,9 @@ int initOgreAR(aruco::CameraParameters camParams, unsigned char* buffer, std::st
 	}	
 	
 	
+	// setup some basic lighting for our scene
+	smgr->setAmbientLight(Ogre::ColourValue(1, 1, 1));
+
  	/// KEYBOARD INPUT READING
  	size_t windowHnd = 0;
  	window->getCustomAttribute("WINDOW", &windowHnd);
