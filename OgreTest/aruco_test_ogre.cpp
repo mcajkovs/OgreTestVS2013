@@ -32,6 +32,8 @@ or implied, of Rafael Muñoz Salinas.
 #include <OIS/OIS.h>
  
 #include "aruco/aruco.h"  
+#include "aruco/highlyreliablemarkers.h"
+
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -60,6 +62,8 @@ float TheMarkerSize=1;
 aruco::MarkerDetector TheMarkerDetector;
 std::vector<aruco::Marker> TheMarkers;
  
+// ArUco Dictionaries
+aruco::Dictionary Dictionary;
   
 int initOgreAR(aruco::CameraParameters camParams, unsigned char* buffer, std::string resourcePath="");
 bool readParameters(int argc, char** argv);
@@ -92,6 +96,23 @@ int main(int argc, char** argv)
       TheVideoCapturer.retrieve ( TheInputImage );
       cv::undistort( TheInputImage, TheInputImageUnd, CameraParams.CameraMatrix, CameraParams.Distorsion);      
       
+	  // load dictionary
+	  std::string dictionaryFile = "reduced-dict-plastic.yml";
+	  if (Dictionary.fromFile(dictionaryFile) == false) {
+		  cerr << "Could not open dictionary" << endl;
+		  Sleep(2000);
+		  return -1;
+	  }
+	  else{
+		  cout << "Dictionary loaded" << endl;
+	  }
+
+	  // load the dictionary to marker detector
+	  aruco::HighlyReliableMarkers::loadDictionary(Dictionary);
+	  // set detector params
+	  TheMarkerDetector.setMakerDetectorFunction(aruco::HighlyReliableMarkers::detect);
+	  TheMarkerDetector.setWarpSize((Dictionary[0].n() + 2) * 8);
+
       /// INIT OGRE
       //initOgreAR(CameraParamsUnd, TheInputImageUnd.ptr<uchar>(0));
 	  initOgreAR(CameraParamsUnd, TheInputImageUnd.ptr<uchar>(0));
