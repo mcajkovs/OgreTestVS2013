@@ -195,6 +195,6 @@ ModelManifest.xml
 *.opendb
 
 #custom
-#OgreTest/Debug/*
-#OgreTest/Release/*
+OgreTest/Debug/*
+OgreTest/Release/*
 
