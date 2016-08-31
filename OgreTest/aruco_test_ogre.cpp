@@ -178,39 +178,39 @@ int main(int argc, char** argv)
   */
 bool readParameters(int argc, char** argv)
 {
- 
-      if (argc<3) {
-	usage();
-	return false;
-      }  
-        
-      // read input video  
-      //if (argv[1]=="live") TheVideoCapturer.open(0);
-      //else TheVideoCapturer.open(argv[1]);
 
-	  // read intrinsic file
-	  try {
-		  CameraParams.readFromXMLFile(argv[2]);
-	  }
-	  catch (std::exception &ex) {
-		  cout << ex.what() << endl;
-		  return false;
-	  }
+	if (argc < 3) {
+		usage();
+		return false;
+	}
 
-	  TheVideoCapturer.open(0);
-	  TheVideoCapturer.set(CV_CAP_PROP_FRAME_WIDTH, CameraParams.CamSize.width);
-	  TheVideoCapturer.set(CV_CAP_PROP_FRAME_HEIGHT, CameraParams.CamSize.height);
+	// read input video  
+	//if (argv[1]=="live") TheVideoCapturer.open(0);
+	//else TheVideoCapturer.open(argv[1]);
+
+	// read intrinsic file
+	try {
+		CameraParams.readFromXMLFile(argv[2]);
+	}
+	catch (std::exception &ex) {
+		cout << ex.what() << endl;
+		return false;
+	}
+
+	TheVideoCapturer.open(0);
+	TheVideoCapturer.set(CV_CAP_PROP_FRAME_WIDTH, CameraParams.CamSize.width);
+	TheVideoCapturer.set(CV_CAP_PROP_FRAME_HEIGHT, CameraParams.CamSize.height);
 
 
-      if (!TheVideoCapturer.isOpened())
-      {
-	  cerr<<"Could not open video"<<endl;
-	  return false;
-      }
-    
+	if (!TheVideoCapturer.isOpened())
+	{
+		cerr << "Could not open video" << endl;
+		return false;
+	}
 
-      if(argc>3) TheMarkerSize=atof(argv[3]); 
-      else TheMarkerSize=1.;
+
+	if (argc > 3) TheMarkerSize = atof(argv[3]);
+	else TheMarkerSize = 1.;
 }
 
  
@@ -222,7 +222,8 @@ int initOgreAR(aruco::CameraParameters camParams, unsigned char* buffer, std::st
 {
   
 	/// INIT OGRE FUNCTIONS
-  	root = new Ogre::Root(resourcePath + "plugins.cfg", resourcePath + "ogre.cfg");
+  	//root = new Ogre::Root(resourcePath + "plugins.cfg", resourcePath + "ogre.cfg");
+	root = new Ogre::Root();
   	if (!root->showConfigDialog()) return -1;
 	Ogre::SceneManager* smgr = root->createSceneManager(Ogre::ST_GENERIC);
 	

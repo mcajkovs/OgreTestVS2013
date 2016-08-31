@@ -95,10 +95,10 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OGRE_DIR)\ogre-dependencies-winrt\lib\Release;$(OGRE_DIR)\Ogre\build\lib\Release;$(OCVLIBDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>OIS.lib
-;OgreMain.lib;
-OgreOverlay.lib;$(OCVLIBs)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OGRE_DIR)\ogre-dependencies-winrt\lib\Debug;$(OGRE_DIR)\Ogre\build\lib\Debug;$(OCVLIBDIR_D);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OIS_d.lib
+;OgreMain_d.lib;
+OgreOverlay_d.lib;$(OCVLIBs_D)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
