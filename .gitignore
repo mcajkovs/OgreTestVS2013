@@ -197,4 +197,6 @@ ModelManifest.xml
 #custom
 OgreTest/Debug/*
 OgreTest/Release/*
+#[Dd]ebug/*
+#[Rr]elease/*
 
