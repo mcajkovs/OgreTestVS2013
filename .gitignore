@@ -12,9 +12,9 @@
 *.sln.docstates
 
 # Build results
-#[Dd]ebug/
+[Dd]ebug/
 [Dd]ebugPublic/
-#[Rr]elease/
+[Rr]elease/
 x64/
 build/
 bld/
@@ -40,11 +40,11 @@ dlldata.c
 *_i.c
 *_p.c
 *_i.h
-*.ilk
+#*.ilk
 *.meta
 *.obj
 *.pch
-*.pdb
+#*.pdb
 *.pgc
 *.pgd
 *.rsp
@@ -197,6 +197,6 @@ ModelManifest.xml
 #custom
 OgreTest/Debug/*
 OgreTest/Release/*
-#[Dd]ebug/*
-#[Rr]elease/*
+[Dd]ebug/*
+[Rr]elease/*
 
